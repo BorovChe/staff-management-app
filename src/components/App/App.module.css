@@ -1,0 +1,9 @@
+.test {
+  font-size: larger;
+  border: 4px bold;
+  background-color: red;
+
+  &:hover {
+    background-color: aqua;
+  }
+}
