@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "user_manager",
+  "name": "user_manager",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,25 +1,26 @@
+import { RiDeleteBin4Line } from 'react-icons/ri';
+
 import {
   UserItemStyled,
   UserStyled,
-  DepartamentStyled,
+  ProfessionStyled,
   CountryStyled,
   StatusStyle,
   DeleteStyled,
 } from './UserItem.styled';
-import { RiDeleteBin4Line } from 'react-icons/ri';
 
 type UserItemProps = {
   name: string;
-  departament: string;
+  profession: string;
   country: string;
   status: string;
 };
 
-const UserItem: React.FC<UserItemProps> = ({ name, departament, country, status }): React.ReactElement => {
+const UserItem: React.FC<UserItemProps> = ({ name, profession, country, status }): React.ReactElement => {
   return (
     <UserItemStyled>
       <UserStyled>{name}</UserStyled>
-      <DepartamentStyled>{departament}</DepartamentStyled>
+      <ProfessionStyled>{profession}</ProfessionStyled>
       <CountryStyled>{country}</CountryStyled>
       <StatusStyle>{status}</StatusStyle>
       <DeleteStyled>

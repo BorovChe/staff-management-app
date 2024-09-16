@@ -1,7 +1,10 @@
-import { AppStyled } from './App.styled';
-import SharedLayout from 'components/SharedLayout/SharedLayout';
-import Users from 'pages/Users/Users';
 import { Routes, Route } from 'react-router-dom';
+
+import EditUsers from 'pages/EditUsers/EditUsers';
+import Users from 'pages/Users/Users';
+import SharedLayout from 'components/SharedLayout/SharedLayout';
+
+import { AppStyled } from './App.styled';
 
 const App: React.FC = (): React.ReactElement => {
   return (
@@ -9,6 +12,7 @@ const App: React.FC = (): React.ReactElement => {
       <Routes>
         <Route element={<SharedLayout />}>
           <Route index element={<Users />} />
+          <Route path="edit-users" element={<EditUsers />} />
         </Route>
       </Routes>
     </AppStyled>

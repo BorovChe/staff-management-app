@@ -31,7 +31,7 @@ const NameColumnStyled = styled.th`
   width: 144px;
   padding-left: 36px;
 `;
-const DepartamentColumnStyled = styled.th`
+const ProfessionColumnStyled = styled.th`
   ${headTitleColumns}
 
   width: 364px;
@@ -60,7 +60,7 @@ export {
   UserTableStyled,
   HeadTitleStyled,
   NameColumnStyled,
-  DepartamentColumnStyled,
+  ProfessionColumnStyled,
   CountryColumnStyled,
   StatusColumnStyled,
   DeleteColumnStyled,

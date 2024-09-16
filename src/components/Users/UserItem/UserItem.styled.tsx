@@ -21,7 +21,7 @@ const UserStyled = styled.td`
   color: var(--color-primary-black);
 `;
 
-const DepartamentStyled = styled.td`
+const ProfessionStyled = styled.td`
   ${detailsStyled}
 
   width: 364px;
@@ -49,4 +49,4 @@ const DeleteStyled = styled.td`
   align-items: center;
 `;
 
-export { UserItemStyled, UserStyled, DepartamentStyled, CountryStyled, StatusStyle, DeleteStyled };
+export { UserItemStyled, UserStyled, ProfessionStyled, CountryStyled, StatusStyle, DeleteStyled };

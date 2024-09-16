@@ -1,8 +1,8 @@
 {
-  "name": "users_management",
+  "name": "user_manager",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://https://BorovChe.github.io/users_management",
+  "homepage": "https://BorovChe.github.io/user_manager",
   "dependencies": {
     "@emotion/styled": "^11.13.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -12,9 +12,12 @@
     "@types/node": "^16.18.108",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
+    "axios": "^1.7.7",
+    "formik": "^2.4.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
+    "react-id-generator": "^3.0.2",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",

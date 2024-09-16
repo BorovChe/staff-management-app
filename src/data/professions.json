@@ -1,0 +1,78 @@
+[
+  {
+    "id": "1a2b3c4d",
+    "title": "Artificial Intelligence (AI) Engineer"
+  },
+  {
+    "id": "2b3c4d5e",
+    "title": "Mobile Application Developer"
+  },
+  {
+    "id": "3c4d5e6f",
+    "title": "Network Engineer"
+  },
+  {
+    "id": "4d5e6f7g",
+    "title": "Network Administrator"
+  },
+  {
+    "id": "5e6f7g8h",
+    "title": "Data Analyst"
+  },
+  {
+    "id": "6f7g8h9i",
+    "title": "User Experience (UX) Designer"
+  },
+  {
+    "id": "7g8h9i0j",
+    "title": "Project Manager"
+  },
+  {
+    "id": "8h9i0j1k",
+    "title": "IT Support Specialist"
+  },
+  {
+    "id": "9i0j1k2l",
+    "title": "Information Technology (IT) Consultant"
+  },
+  {
+    "id": "0j1k2l3m",
+    "title": "Information Security Analyst"
+  },
+  {
+    "id": "1k2l3m4n",
+    "title": "Cybersecurity Specialist"
+  },
+  {
+    "id": "2l3m4n5o",
+    "title": "Cybersecurity Analyst"
+  },
+  {
+    "id": "3m4n5o6p",
+    "title": "Web Developer"
+  },
+  {
+    "id": "4n5o6p7q",
+    "title": "Systems Analyst"
+  },
+  {
+    "id": "5o6p7q8r",
+    "title": "Computer Hardware Engineer"
+  },
+  {
+    "id": "6p7q8r9s",
+    "title": "Robotics Engineer"
+  },
+  {
+    "id": "7q8r9s0t",
+    "title": "Quality Assurance (QA) Analyst"
+  },
+  {
+    "id": "8r9s0t1u",
+    "title": "Database Administrator"
+  },
+  {
+    "id": "9s0t1u2v",
+    "title": "Software Developer"
+  }
+]
