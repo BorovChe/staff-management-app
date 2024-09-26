@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import nextId from 'react-id-generator';
-
 import professions from 'data/professions.json';
 import { getEuropeanCountries } from 'API/countryApi';
 
@@ -11,8 +9,6 @@ const UserForm: React.FC<any> = ({ initialValues, newUser }): React.ReactElement
   const [profession, setProffesion] = useState('');
   const [country, setCountry] = useState('');
   const [status, setStatus] = useState('');
-
-  const generateUserId = nextId();
 
   useEffect(() => {
     const { name, profession, country, status } = initialValues;
@@ -49,11 +45,9 @@ const UserForm: React.FC<any> = ({ initialValues, newUser }): React.ReactElement
         break;
     }
   };
-
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const updateUser = {
-      generateUserId,
       name,
       profession,
       country,
@@ -64,14 +58,14 @@ const UserForm: React.FC<any> = ({ initialValues, newUser }): React.ReactElement
   };
 
   return (
-    <form id="editForm" onSubmit={handleSubmit}>
+    <form id="userForm" onSubmit={handleSubmit}>
       <label htmlFor="name">Full Name</label>
-      <input type="text " name="name" onChange={handleChange} value={name || ''} />
+      <input type="text " name="name" placeholder="Enter full name" onChange={handleChange} value={name} />
 
       <label htmlFor="profession">Professions</label>
       <select required name="profession" onChange={handleChange} value={profession}>
-        <option value="Enter full name" disabled hidden>
-          Enter full name
+        <option value="Select profession" disabled hidden>
+          Select profession
         </option>
         {professions.map(({ title, id }) => {
           return (
