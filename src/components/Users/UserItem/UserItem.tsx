@@ -1,4 +1,7 @@
+import { FC, ReactElement } from 'react';
 import { RiDeleteBin4Line } from 'react-icons/ri';
+
+import { UserItemProps } from './types';
 
 import {
   UserItemStyled,
@@ -7,16 +10,13 @@ import {
   CountryStyled,
   StatusStyle,
   DeleteStyled,
+  DeleteBtnStyled,
 } from './UserItem.styled';
 
-type UserItemProps = {
-  name: string;
-  profession: string;
-  country: string;
-  status: string;
-};
-
-const UserItem: React.FC<UserItemProps> = ({ name, profession, country, status }): React.ReactElement => {
+const UserItem: FC<UserItemProps> = ({
+  user: { name, profession, country, status, id },
+  onDeleteUser,
+}): ReactElement => {
   return (
     <UserItemStyled>
       <UserStyled>{name}</UserStyled>
@@ -24,7 +24,9 @@ const UserItem: React.FC<UserItemProps> = ({ name, profession, country, status }
       <CountryStyled>{country}</CountryStyled>
       <StatusStyle>{status}</StatusStyle>
       <DeleteStyled>
-        <RiDeleteBin4Line size={20} />
+        <DeleteBtnStyled type="button" onClick={(): void => onDeleteUser(id)}>
+          <RiDeleteBin4Line size={20} />
+        </DeleteBtnStyled>
       </DeleteStyled>
     </UserItemStyled>
   );

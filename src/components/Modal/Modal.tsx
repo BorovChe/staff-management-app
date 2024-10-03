@@ -1,18 +1,21 @@
+import { FC, ReactPortal, MouseEvent, useEffect } from 'react';
+
 import { createPortal } from 'react-dom';
 
 import { BackDropStyled, ModalStyled } from './Modal.styled';
-import { useEffect } from 'react';
 
-const modalRootEl = document.querySelector('#modal-root')!;
+import { ModalProps } from './types';
 
-const Modal = ({ onClose, children }: any) => {
-  const onKeydown = (e: KeyboardEvent) => {
+const modalRootEl: Element = document.querySelector('#modal-root')!;
+
+const Modal: FC<ModalProps> = ({ onClose, children }): ReactPortal => {
+  const onKeydown = (e: KeyboardEvent): void => {
     if (e.code === 'Escape') {
       onClose();
     }
   };
 
-  const handleBackdropClick = (e: any) => {
+  const handleBackdropClick = (e: MouseEvent): void => {
     if (e.currentTarget === e.target) {
       onClose();
     }
@@ -20,7 +23,7 @@ const Modal = ({ onClose, children }: any) => {
 
   useEffect(() => {
     document.addEventListener('keydown', onKeydown);
-    return () => document.removeEventListener('keydown', onKeydown);
+    return (): void => document.removeEventListener('keydown', onKeydown);
   });
 
   return createPortal(

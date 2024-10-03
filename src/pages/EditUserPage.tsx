@@ -1,9 +1,10 @@
-import EditUsersForm from 'components/Users/EditUsersForm/EditUsersForm';
+import { FC, ReactElement } from 'react';
 
+import EditUsersForm from 'features/User/EditUserForm/EditUserForm';
 import { SectionStyled } from 'components/UI/Section/Section.styled';
 import { SectionTitleStyled } from 'components/UI/SectionTitle/SectionTitle.styled';
 
-const EditUsers: React.FC = (): React.ReactElement => {
+const EditUsers: FC = (): ReactElement => {
   return (
     <SectionStyled>
       <SectionTitleStyled marginBottom="80px">EDIT USER</SectionTitleStyled>
@@ -12,4 +13,4 @@ const EditUsers: React.FC = (): React.ReactElement => {
   );
 };
 
-export default EditUsers;
+export { EditUsers };

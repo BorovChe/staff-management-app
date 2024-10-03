@@ -1,12 +1,13 @@
+import { FC, ReactElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import EditUsers from 'pages/EditUsers/EditUsers';
-import Users from 'pages/Users/Users';
+import { EditUsers, Users } from 'pages';
+
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 import { AppStyled } from './App.styled';
 
-const App: React.FC = (): React.ReactElement => {
+const App: FC = (): ReactElement => {
   return (
     <AppStyled>
       <Routes>

@@ -49,4 +49,15 @@ const DeleteStyled = styled.td`
   align-items: center;
 `;
 
-export { UserItemStyled, UserStyled, ProfessionStyled, CountryStyled, StatusStyle, DeleteStyled };
+const DeleteBtnStyled = styled.button`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border: none;
+`;
+
+export { UserItemStyled, UserStyled, ProfessionStyled, CountryStyled, StatusStyle, DeleteStyled, DeleteBtnStyled };

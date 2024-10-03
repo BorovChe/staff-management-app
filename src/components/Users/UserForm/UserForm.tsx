@@ -1,53 +1,28 @@
-import { useEffect, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import professions from 'data/professions.json';
 import { getEuropeanCountries } from 'API/countryApi';
 
-const UserForm: React.FC<any> = ({ initialValues, newUser }): React.ReactElement => {
-  const [countries, setCountries]: any = useState([]);
-  const [name, setName] = useState('');
-  const [profession, setProffesion] = useState('');
-  const [country, setCountry] = useState('');
-  const [status, setStatus] = useState('');
+import { CountriesType, ProfessionType, UserType } from 'common/types/types/types';
+import { UserFormType } from './types';
 
-  useEffect(() => {
-    const { name, profession, country, status } = initialValues;
-    setName(name);
-    setProffesion(profession);
-    setCountry(country);
-    setStatus(status);
-  }, [initialValues]);
+const UserForm: FC<UserFormType> = ({ initialValues, newUser }): ReactElement => {
+  const [countries, setCountries] = useState<CountriesType[]>([]);
+
+  const { register, handleSubmit, reset } = useForm<UserType>({ defaultValues: initialValues });
+
+  useEffect((): void => {
+    reset(initialValues);
+  }, [initialValues, reset]);
 
   useEffect(() => {
     getEuropeanCountries().then(data => setCountries(data));
   }, []);
 
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-
-      case 'profession':
-        setProffesion(value);
-        break;
-
-      case 'country':
-        setCountry(value);
-        break;
-
-      case 'status':
-        setStatus(value);
-        break;
-
-      default:
-        break;
-    }
-  };
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  const onSubmit = ({ name, profession, country, status }: UserType): void => {
     const updateUser = {
+      id: '',
       name,
       profession,
       country,
@@ -58,16 +33,13 @@ const UserForm: React.FC<any> = ({ initialValues, newUser }): React.ReactElement
   };
 
   return (
-    <form id="userForm" onSubmit={handleSubmit}>
+    <form id="userForm" onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="name">Full Name</label>
-      <input type="text " name="name" placeholder="Enter full name" onChange={handleChange} value={name} />
-
+      <input type="text" placeholder="Enter full name" {...register('name')} />
       <label htmlFor="profession">Professions</label>
-      <select required name="profession" onChange={handleChange} value={profession}>
-        <option value="Select profession" disabled hidden>
-          Select profession
-        </option>
-        {professions.map(({ title, id }) => {
+      <select {...register('profession')}>
+        <option value="Select profession">Select profession</option>
+        {professions.map(({ title, id }: ProfessionType): ReactElement => {
           return (
             <option key={id} value={title}>
               {title}
@@ -76,11 +48,9 @@ const UserForm: React.FC<any> = ({ initialValues, newUser }): React.ReactElement
         })}
       </select>
       <label htmlFor="country">Country</label>
-      <select required name="country" onChange={handleChange} value={country}>
-        <option value="Select country" disabled hidden>
-          Select country
-        </option>
-        {countries.map(({ name }: any) => {
+      <select {...register('country')}>
+        <option value="Select country">Select country</option>
+        {countries.map(({ name }: CountriesType): ReactElement => {
           return (
             <option key={name.common} value={name.common}>
               {name.common}
@@ -88,11 +58,10 @@ const UserForm: React.FC<any> = ({ initialValues, newUser }): React.ReactElement
           );
         })}
       </select>
-      <select required name="status" onChange={handleChange} value={status}>
-        <option value="Select status" disabled hidden>
-          Select status
-        </option>
-        {['active', 'disabled', 'blocked'].map((status: any) => {
+      <label htmlFor="status">Status</label>
+      <select {...register('status')}>
+        <option value="Select status">Select status</option>
+        {['active', 'disabled', 'blocked'].map((status: string): ReactElement => {
           return (
             <option key={status} value={status}>
               {status}

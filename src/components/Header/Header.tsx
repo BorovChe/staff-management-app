@@ -1,6 +1,7 @@
+import { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Header: React.FC = (): React.ReactElement => {
+const Header: FC = (): ReactElement => {
   return (
     <header>
       <nav>
