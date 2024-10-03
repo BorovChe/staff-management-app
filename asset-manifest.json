@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/user_manager/static/css/main.7e526878.css",
+    "main.js": "/user_manager/static/js/main.cfd3259e.js",
+    "index.html": "/user_manager/index.html",
+    "main.7e526878.css.map": "/user_manager/static/css/main.7e526878.css.map",
+    "main.cfd3259e.js.map": "/user_manager/static/js/main.cfd3259e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e526878.css",
+    "static/js/main.cfd3259e.js"
+  ]
+}
