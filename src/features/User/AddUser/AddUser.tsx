@@ -1,9 +1,9 @@
 import { FC, ReactElement, useState } from 'react';
 import { nanoid } from 'nanoid';
+import { useTranslation } from 'react-i18next';
 
 import Modal from 'components/Modal/Modal';
 import UserForm from 'features/User/components/UserForm/UserForm';
-
 import { addUser } from '../redux/userSlice';
 import { initialDefaultValue } from 'helpers/defaultValue/initialDefaultValue';
 import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
@@ -11,6 +11,7 @@ import { selectUsers } from '../redux/selectors';
 import { UserType } from 'common/types/types';
 
 const AddUser: FC = (): ReactElement => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const users: UserType[] = useAppSelector(selectUsers);
   const [showModal, setShowModal] = useState<Boolean>(false);
@@ -41,17 +42,17 @@ const AddUser: FC = (): ReactElement => {
   return (
     <>
       <button onClick={() => toggleModal()} type="button">
-        Add User
+        {t('main.users.add_user')}
       </button>
       {showModal && (
         <Modal onClose={toggleModal}>
-          <strong>ADD USER</strong>
+          <strong>{t('user_modal.add_user')}</strong>
           <UserForm initialValues={initialDefaultValue} newUser={onAddUser} />
           <button onClick={(): void => toggleModal()} type="button">
-            Cancel
+            {t('user_modal.cancel')}
           </button>
           <button form="userForm" type="submit">
-            Add
+            {t('user_modal.add_user_btn')}
           </button>
         </Modal>
       )}

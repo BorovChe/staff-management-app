@@ -1,4 +1,5 @@
 import { ReactElement, ChangeEvent, FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import UserForm from '../components/UserForm/UserForm';
 
@@ -9,6 +10,7 @@ import { selectUsers } from '../redux/selectors';
 import { UserType } from 'common/types/types';
 
 const EditUserForm: FC = (): ReactElement => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const users: UserType[] = useAppSelector(selectUsers);
   const [currentUser, setCurrentUser] = useState<UserType>(() => users[0] || initialDefaultValue);
@@ -34,29 +36,23 @@ const EditUserForm: FC = (): ReactElement => {
 
   return (
     <>
-      <label htmlFor="editUser">User</label>
+      <label htmlFor="editUser">{t('main.edit.current_user')}</label>
       <select required name="editUser" onChange={selectCurrentUser} value={currentUser.name || 'Add User'}>
-        {users && users.length ? (
-          users.map(({ name, id }: UserType): ReactElement => {
-            return (
-              <option key={id} value={name}>
-                {name}
-              </option>
-            );
-          })
-        ) : (
-          <option value="Add User" disabled hidden>
-            Add User
-          </option>
-        )}
+        {users.map(({ name, id }: UserType): ReactElement => {
+          return (
+            <option key={id} value={name}>
+              {name}
+            </option>
+          );
+        })}
       </select>
-      <h3>User Information</h3>
+      <h3>{t('main.edit.user_info')}</h3>
       <UserForm initialValues={currentUser} newUser={onUpdateUser} />
       <button form="userForm" type="reset">
-        Undo
+        {t('main.edit.undo_btn')}
       </button>
       <button form="userForm" type="submit">
-        Save
+        {t('main.edit.save_btn')}
       </button>
     </>
   );

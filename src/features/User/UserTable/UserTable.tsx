@@ -1,4 +1,5 @@
 import { FC, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import UserItem from '../components/UserItem/UserItem';
 
@@ -20,6 +21,7 @@ import {
 } from './UserTable.styled';
 
 const UserTable: FC = (): ReactElement => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const users: UserType[] = useAppSelector(selectUsers);
   const filter = useAppSelector(selectFilterUsers);
@@ -35,10 +37,10 @@ const UserTable: FC = (): ReactElement => {
       <UserTableStyled>
         <thead>
           <HeadTitleStyled>
-            <NameColumnStyled>Full Name</NameColumnStyled>
-            <ProfessionColumnStyled>Profession</ProfessionColumnStyled>
-            <CountryColumnStyled>Country</CountryColumnStyled>
-            <StatusColumnStyled>Status</StatusColumnStyled>
+            <NameColumnStyled>{t('main.users.user_table.name')}</NameColumnStyled>
+            <ProfessionColumnStyled>{t('main.users.user_table.profession')}</ProfessionColumnStyled>
+            <CountryColumnStyled>{t('main.users.user_table.country')}</CountryColumnStyled>
+            <StatusColumnStyled>{t('main.users.user_table.status')}</StatusColumnStyled>
             <DeleteColumnStyled></DeleteColumnStyled>
           </HeadTitleStyled>
         </thead>

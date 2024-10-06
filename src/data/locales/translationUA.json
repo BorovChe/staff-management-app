@@ -1,0 +1,40 @@
+{
+  "header": { "edit_user": "Редагувати користувача", "users": "Користувачі", "log_out": "Вийти" },
+  "auth": { "auth_title": "Менеджер Користувачів", "sign_up": "Зареєструватися", "sign_in": "Увійти" },
+  "auth_form": {
+    "name_label": "Ім'я",
+    "email_label": "Пошта",
+    "password_label": "Пароль",
+    "name_placeholder": "Введіть ім'я",
+    "email_placeholder": "Введіть пошту",
+    "password_placeholder": "Введіть пароль"
+  },
+  "main": {
+    "users": {
+      "title": "КОРИСТУВАЧІ",
+      "search": "Пошук",
+      "add_user": "Додати користувача",
+      "user_filter": { "search": "Пошук" },
+      "user_table": {
+        "name": "Повне ім’я",
+        "profession": "Професія",
+        "country": "Країна",
+        "status": "Статус"
+      }
+    },
+    "edit": {
+      "title": "РЕДАГУВАТИ КОРИСТУВАЧА",
+      "current_user": "Користувач",
+      "user_info": "Інформація про користувача",
+      "undo_btn": "Скасувати",
+      "save_btn": "Зберегти"
+    }
+  },
+  "user_form": {
+    "country": { "select": "Виберіть країну", "label": "Країна" },
+    "name": { "select": "Введіть повне ім'я", "label": "Повне ім'я" },
+    "professions": { "select": "Виберіть професію", "label": "Професія" },
+    "status": { "select": "Виберіть статус", "label": "Статус" }
+  },
+  "user_modal": { "add_user": "ДОДАТИ КОРИСТУВАЧА", "add_user_btn": "Додати користувача", "cancel": "Відмінити" }
+}

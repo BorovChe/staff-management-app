@@ -1,6 +1,7 @@
 import { FC, ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
 import { RiDeleteBin4Line } from 'react-icons/ri';
+import { useTranslation } from 'react-i18next';
 
 import { ProfessionSelect, CountrySelect, StatusSelect } from '../components/Fields';
 import { filterUser } from '../redux/userSlice';
@@ -10,6 +11,7 @@ import { UserType } from 'common/types/types';
 import { ResetBtnStyled } from './UserFilter.styled';
 
 const UserFilter: FC = (): ReactElement => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { register, handleSubmit } = useForm<UserType>();
   const defaultValue = {
@@ -32,7 +34,7 @@ const UserFilter: FC = (): ReactElement => {
       <ProfessionSelect register={register} />
       <CountrySelect register={register} />
       <StatusSelect register={register} />
-      <button type="submit">Search</button>
+      <button type="submit">{t('main.users.user_filter.search')}</button>
       <ResetBtnStyled type="reset" onClick={() => dispatch(filterUser(defaultValue))}>
         <RiDeleteBin4Line size={20} />
       </ResetBtnStyled>
