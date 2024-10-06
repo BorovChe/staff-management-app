@@ -24,7 +24,7 @@ const UserItem: FC<UserItemProps> = ({
       <CountryStyled>{country}</CountryStyled>
       <StatusStyle>{status}</StatusStyle>
       <DeleteStyled>
-        <DeleteBtnStyled type="button" onClick={(): void => onDeleteUser(id)}>
+        <DeleteBtnStyled type="button" onClick={(): void => onDeleteUser(id!)}>
           <RiDeleteBin4Line size={20} />
         </DeleteBtnStyled>
       </DeleteStyled>

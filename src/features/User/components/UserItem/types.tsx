@@ -1,4 +1,4 @@
-import { UserType } from 'common/types/types/types';
+import { UserType } from 'common/types/types';
 
 type UserItemProps = {
   user: UserType;

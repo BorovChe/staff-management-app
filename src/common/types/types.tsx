@@ -1,13 +1,12 @@
-type DefaultFormValue = {
+type UserType = {
+  id?: string;
   name: string;
   profession: string;
   country: string;
   status: string;
 };
 
-type UserType = {
-  id: string;
-  name: string;
+type FilterValue = {
   profession: string;
   country: string;
   status: string;
@@ -24,4 +23,4 @@ type ProfessionType = {
   title: string;
 };
 
-export type { DefaultFormValue, UserType, CountriesType, ProfessionType };
+export type { UserType, CountriesType, ProfessionType, FilterValue };

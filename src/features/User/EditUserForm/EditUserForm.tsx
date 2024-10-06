@@ -1,26 +1,24 @@
 import { ReactElement, ChangeEvent, FC, useState } from 'react';
 
-import UserForm from '../../../components/Users/UserForm/UserForm';
+import UserForm from '../components/UserForm/UserForm';
 
 import { initialDefaultValue } from 'helpers/defaultValue/initialDefaultValue';
 import { updateUser } from '../redux/userSlice';
-import { useAppDispatch, useAppSelector } from 'common/types/hooks/reduxHooks';
-import { getUsers } from '../redux/selectors';
-import { UsersState } from 'features/User/redux/types';
-import { UserType } from 'common/types/types/types';
+import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
+import { selectUsers } from '../redux/selectors';
+import { UserType } from 'common/types/types';
 
 const EditUserForm: FC = (): ReactElement => {
   const dispatch = useAppDispatch();
-  const { users }: UsersState = useAppSelector(getUsers);
+  const users: UserType[] = useAppSelector(selectUsers);
   const [currentUser, setCurrentUser] = useState<UserType>(() => users[0] || initialDefaultValue);
 
   const selectCurrentUser = (e: ChangeEvent<HTMLSelectElement>): void => {
     const input: HTMLSelectElement = e.target;
     const value: string = input.value;
 
-    const searchCurrentUser: UserType = Boolean(users.length)
-      ? users.find(({ name }: UserType): boolean => name === value)!
-      : initialDefaultValue;
+    const searchCurrentUser: UserType =
+      users && users.length ? users.find(({ name }: UserType): boolean => name === value)! : initialDefaultValue;
 
     setCurrentUser(searchCurrentUser);
   };
@@ -38,7 +36,7 @@ const EditUserForm: FC = (): ReactElement => {
     <>
       <label htmlFor="editUser">User</label>
       <select required name="editUser" onChange={selectCurrentUser} value={currentUser.name || 'Add User'}>
-        {Boolean(users.length) ? (
+        {users && users.length ? (
           users.map(({ name, id }: UserType): ReactElement => {
             return (
               <option key={id} value={name}>

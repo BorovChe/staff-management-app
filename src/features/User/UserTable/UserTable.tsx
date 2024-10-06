@@ -1,12 +1,12 @@
 import { FC, ReactElement } from 'react';
 
-import UserItem from '../../../components/Users/UserItem/UserItem';
+import UserItem from '../components/UserItem/UserItem';
 
-import { useAppDispatch, useAppSelector } from 'common/types/hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
+import { userFilter } from '../UserFilter/userFilterFunc';
 import { deleteUser } from '../redux/userSlice';
-import { getUsers } from '../redux/selectors';
-import { UserType } from 'common/types/types/types';
-import { UsersState } from 'features/User/redux/types';
+import { selectFilterUsers, selectUsers } from '../redux/selectors';
+import { UserType } from 'common/types/types';
 
 import {
   TableWrapperStyled,
@@ -21,7 +21,9 @@ import {
 
 const UserTable: FC = (): ReactElement => {
   const dispatch = useAppDispatch();
-  const { users }: UsersState = useAppSelector(getUsers);
+  const users: UserType[] = useAppSelector(selectUsers);
+  const filter = useAppSelector(selectFilterUsers);
+  const visibleUsers = userFilter(users, filter);
 
   const onDeleteUser = (id: string): void => {
     const userDelete = users.filter((user: UserType): boolean => user.id !== id);
@@ -41,7 +43,7 @@ const UserTable: FC = (): ReactElement => {
           </HeadTitleStyled>
         </thead>
         <tbody>
-          {users.map((user: UserType): ReactElement => {
+          {visibleUsers.map((user: UserType): ReactElement => {
             return <UserItem key={user.id} user={user} onDeleteUser={onDeleteUser} />;
           })}
         </tbody>

@@ -1,5 +1,7 @@
 import { RootState } from 'store/store';
 
-const getUsers = (state: RootState) => state.users;
+const selectUsers = (state: RootState) => state.users.users;
 
-export { getUsers };
+const selectFilterUsers = (state: RootState) => state.users.filterValue;
+
+export { selectUsers, selectFilterUsers };

@@ -1,19 +1,12 @@
 import { FC, ReactElement } from 'react';
-import { NavLink } from 'react-router-dom';
+import NavBar from './NavBar/NavBar';
+import LogOut from './LogOut/LogOut';
 
 const Header: FC = (): ReactElement => {
   return (
     <header>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="edit-users">Edit Users</NavLink>
-          </li>
-          <li>
-            <NavLink to="/">Users</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <NavBar />
+      <LogOut />
     </header>
   );
 };

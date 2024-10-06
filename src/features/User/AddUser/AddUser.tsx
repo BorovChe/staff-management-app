@@ -2,18 +2,17 @@ import { FC, ReactElement, useState } from 'react';
 import { nanoid } from 'nanoid';
 
 import Modal from 'components/Modal/Modal';
-import UserForm from 'components/Users/UserForm/UserForm';
+import UserForm from 'features/User/components/UserForm/UserForm';
 
 import { addUser } from '../redux/userSlice';
 import { initialDefaultValue } from 'helpers/defaultValue/initialDefaultValue';
-import { useAppDispatch, useAppSelector } from 'common/types/hooks/reduxHooks';
-import { getUsers } from '../redux/selectors';
-import { UserType } from 'common/types/types/types';
-import { UsersState } from 'features/User/redux/types';
+import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
+import { selectUsers } from '../redux/selectors';
+import { UserType } from 'common/types/types';
 
 const AddUser: FC = (): ReactElement => {
   const dispatch = useAppDispatch();
-  const { users }: UsersState = useAppSelector(getUsers);
+  const users: UserType[] = useAppSelector(selectUsers);
   const [showModal, setShowModal] = useState<Boolean>(false);
 
   const generateUserId: string = nanoid();
@@ -23,11 +22,15 @@ const AddUser: FC = (): ReactElement => {
   };
 
   const onAddUser = (user: UserType): void => {
-    user.id = generateUserId;
+    const newUser: UserType = {
+      ...user,
+      id: generateUserId,
+    };
+
     const checkedUsers: boolean = users.some(({ name }: UserType): boolean => name.trim() === user.name.trim());
 
     if (!checkedUsers) {
-      const addNewUser: UserType[] = [...users, user];
+      const addNewUser: UserType[] = [...users, newUser];
       dispatch(addUser(addNewUser));
       toggleModal();
     } else {
