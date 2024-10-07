@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/user_manager/static/css/main.7e526878.css",
+    "main.js": "/user_manager/static/js/main.2feaf7ae.js",
+    "index.html": "/user_manager/index.html",
+    "static/media/getFetch.cjs": "/user_manager/static/media/getFetch.c4cca45e22bc1b2c7d0d.cjs",
+    "main.7e526878.css.map": "/user_manager/static/css/main.7e526878.css.map",
+    "main.2feaf7ae.js.map": "/user_manager/static/js/main.2feaf7ae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e526878.css",
+    "static/js/main.2feaf7ae.js"
+  ]
+}
