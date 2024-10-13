@@ -1,8 +1,8 @@
 {
-  "name": "user_manager",
+  "name": "staff-management-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://BorovChe.github.io/user_manager",
+  "homepage": "https://BorovChe.github.io/staff-management-app",
   "dependencies": {
     "@emotion/styled": "^11.13.0",
     "@reduxjs/toolkit": "^2.2.7",

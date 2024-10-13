@@ -1,11 +1,13 @@
 import { FC, ReactElement } from 'react';
+
 import { AuthFieldProps } from './types';
 
-const AuthField: FC<AuthFieldProps> = ({ register, type, label, placeholder }): ReactElement => {
+import { AuthFieldStyled } from './AuthField.styled';
+
+const AuthField: FC<AuthFieldProps> = ({ register, type, placeholder }): ReactElement => {
   return (
     <>
-      <label htmlFor={type}>{label}</label>
-      <input type={type} placeholder={placeholder} {...register(type)} />
+      <AuthFieldStyled type={type} placeholder={placeholder} {...register(type)} />
     </>
   );
 };

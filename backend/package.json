@@ -1,6 +1,12 @@
 {
+  "name": "ts-course-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node -r tsconfig-paths/register ./dist/main.js",
+    "dev": "nodemon",
+    "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
     "class-transformer": "^0.5.1",

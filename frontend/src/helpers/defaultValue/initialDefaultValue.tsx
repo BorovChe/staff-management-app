@@ -1,6 +1,6 @@
-import { UserType } from 'common/types/types';
+import { EmployeeType } from 'common/types/types';
 
-const initialDefaultValue: UserType = {
+const initialDefaultValue: EmployeeType = {
   id: '',
   name: '',
   profession: 'Select profession',

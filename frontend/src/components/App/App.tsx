@@ -2,11 +2,11 @@ import { FC, ReactElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { PublicRoutes, PrivateRoutes } from 'common/routes';
-import { EditUsers, Users } from 'pages';
+import { EditStaff, Staff } from 'pages';
 
 import AuthContainer from 'features/Auth/components/AuthContainer/AuthContainer';
-import { SignInForm } from 'features/Auth/SignInForm/SignInForm';
 import { SignUpForm } from 'features/Auth/SignUpForm/SignUpForm';
+import { SignInForm } from 'features/Auth/SignInForm/SignInForm';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 import { AppStyled } from './App.styled';
@@ -24,8 +24,8 @@ const App: FC = (): ReactElement => {
 
         <Route element={<PrivateRoutes />}>
           <Route element={<SharedLayout />}>
-            <Route index element={<Users />} />
-            <Route path="edit-users" element={<EditUsers />} />
+            <Route index element={<Staff />} />
+            <Route path="edit-employee" element={<EditStaff />} />
           </Route>
         </Route>
       </Routes>

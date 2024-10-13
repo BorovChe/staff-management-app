@@ -1,7 +1,14 @@
 :root {
-  --color-primary-white: #f6f6f6;
-  --color-primary-black: #121212;
+  --color-primary-white: #fff;
+  --color-primary-black: #4a5568;
+  --color-primary-accent: #220646;
+  --background-primary-color: #f7fafc;
 
-  --font-family: 'Rubik', sans-serif;
+  --color-secondary-accent: #15012e;
+  --btn-primary-color: #553c9a;
+
+  --warning-color: #f0203b;
+
+  --font-family: 'Roboto', sans-serif;
   --second-family: 'Karla', sans-serif;
 }

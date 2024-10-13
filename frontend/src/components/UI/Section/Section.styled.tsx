@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
 
 const SectionStyled = styled.section`
-  width: 70vw;
-  height: 70vh;
-  padding: 60px 80px 80px 80px;
+  padding: 60px 18px 18px 18px;
 
-  border: 1px solid #000;
+  background: #f7fafc;
 `;
 
 export { SectionStyled };

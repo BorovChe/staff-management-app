@@ -2,7 +2,7 @@ import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import './features/i18n/i18nInit';
+import './features/i18n/i18nInit/i18nInit';
 
 import App from './components/App/App';
 import { persistor, store } from './store/store';
@@ -15,7 +15,7 @@ root.render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/user_manager">
+        <BrowserRouter basename="/staff-management-app">
           <Suspense>
             <App />
           </Suspense>

@@ -1,21 +1,18 @@
 {
-  "header": { "edit_user": "Редагувати користувача", "users": "Користувачі", "log_out": "Вийти" },
-  "auth": { "auth_title": "Менеджер Користувачів", "sign_up": "Зареєструватися", "sign_in": "Увійти" },
+  "header": { "edit_employee": "Редагувати працівника", "staff": "Персонал", "log_out": "Вийти" },
+  "auth": { "auth_title": "Менеджер Персоналу", "sign_up": "Зареєструватися", "sign_in": "Увійти" },
   "auth_form": {
-    "name_label": "Ім'я",
-    "email_label": "Пошта",
-    "password_label": "Пароль",
-    "name_placeholder": "Введіть ім'я",
-    "email_placeholder": "Введіть пошту",
-    "password_placeholder": "Введіть пароль"
+    "name_placeholder": "Ім'я",
+    "email_placeholder": "Пошта",
+    "password_placeholder": "Пароль"
   },
   "main": {
-    "users": {
-      "title": "КОРИСТУВАЧІ",
+    "staff": {
+      "title": "ПЕРСОНАЛ",
       "search": "Пошук",
-      "add_user": "Додати користувача",
-      "user_filter": { "search": "Пошук" },
-      "user_table": {
+      "add_employee": "Додати працівника",
+      "employee_filter": { "search": "Пошук" },
+      "employee_table": {
         "name": "Повне ім’я",
         "profession": "Професія",
         "country": "Країна",
@@ -23,18 +20,22 @@
       }
     },
     "edit": {
-      "title": "РЕДАГУВАТИ КОРИСТУВАЧА",
-      "current_user": "Користувач",
-      "user_info": "Інформація про користувача",
+      "title": "РЕДАГУВАТИ ПРАЦІВНИКА",
+      "current_employee": "Працівник",
+      "employee_info": "Інформація про Працівника",
       "undo_btn": "Скасувати",
       "save_btn": "Зберегти"
     }
   },
-  "user_form": {
+  "employee_form": {
     "country": { "select": "Виберіть країну", "label": "Країна" },
     "name": { "select": "Введіть повне ім'я", "label": "Повне ім'я" },
     "professions": { "select": "Виберіть професію", "label": "Професія" },
     "status": { "select": "Виберіть статус", "label": "Статус" }
   },
-  "user_modal": { "add_user": "ДОДАТИ КОРИСТУВАЧА", "add_user_btn": "Додати користувача", "cancel": "Відмінити" }
+  "employee_modal": {
+    "add_employee": "ДОДАТИ ПРАЦІВНИКА",
+    "add_employee_btn": "Додати Працівника",
+    "cancel": "Відмінити"
+  }
 }

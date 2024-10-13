@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
-type TitleProps = {
-  marginBottom: string;
-};
+import { TitleProps } from './types';
 
 const SectionTitleStyled = styled.h2<TitleProps>`
   margin-bottom: ${props => props.marginBottom};

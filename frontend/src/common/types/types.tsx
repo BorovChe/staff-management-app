@@ -1,4 +1,4 @@
-type UserType = {
+type EmployeeType = {
   id?: string;
   name: string;
   profession: string;
@@ -23,4 +23,4 @@ type ProfessionType = {
   title: string;
 };
 
-export type { UserType, CountriesType, ProfessionType, FilterValue };
+export type { EmployeeType, CountriesType, ProfessionType, FilterValue };

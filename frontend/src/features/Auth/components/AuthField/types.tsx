@@ -5,7 +5,6 @@ import { AuthType } from '../../types/types';
 type AuthFieldProps = {
   register: UseFormRegister<AuthType>;
   type: keyof AuthType;
-  label: string;
   placeholder: string;
 };
 

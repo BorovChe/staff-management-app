@@ -1,2 +1,2 @@
-export * from './EditUserPage';
-export * from './UsersPage';
+export * from './EditEmployeePage';
+export * from './StaffPage';

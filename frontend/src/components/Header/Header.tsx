@@ -1,14 +1,11 @@
 import { FC, ReactElement } from 'react';
-import NavBar from './NavBar/NavBar';
-import LogOut from './LogOut/LogOut';
-import I18nSwitcher from '../I18nSwitcher/I18nSwitcher';
+
+import I18nSwitcher from '../../features/i18n/components/I18nSwitcher/I18nSwitcher';
 
 const Header: FC = (): ReactElement => {
   return (
     <header>
-      <NavBar />
       <I18nSwitcher />
-      <LogOut />
     </header>
   );
 };

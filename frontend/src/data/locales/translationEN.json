@@ -1,21 +1,18 @@
 {
-  "header": { "edit_user": "Edit user", "users": "Users", "log_out": "LogOut" },
-  "auth": { "auth_title": "User Manager", "sign_up": "SignUp", "sign_in": "SignIn" },
+  "header": { "edit_employee": "Edit employee", "staff": "Staff", "log_out": "Logout" },
+  "auth": { "auth_title": "Staff Management", "sign_up": "Sign Up", "sign_in": "Sign In" },
   "auth_form": {
-    "name_label": "Name",
-    "email_label": "Email",
-    "password_label": "Password",
-    "name_placeholder": "Enter full name",
-    "email_placeholder": "Enter full name",
-    "password_placeholder": "Enter full name"
+    "name_placeholder": "Name",
+    "email_placeholder": "Email",
+    "password_placeholder": "Password"
   },
   "main": {
-    "users": {
-      "title": "USERS",
+    "staff": {
+      "title": "STAFF",
       "search": "Search",
-      "add_user": "ADD USER",
-      "user_filter": { "search": "Search" },
-      "user_table": {
+      "add_employee": "ADD EMPLOYEE",
+      "employee_filter": { "search": "Search" },
+      "employee_table": {
         "name": "Full Name",
         "profession": "Profession",
         "country": "Country",
@@ -23,19 +20,19 @@
       }
     },
     "edit": {
-      "title": "EDIT USER",
+      "title": "EDIT EMPLOYEE",
       "search": "Search",
-      "current_user": "User",
-      "user_info": "User Information",
+      "current_employee": "Employee",
+      "employee_info": "Employee Information",
       "undo_btn": "Undo",
       "save_btn": "Save"
     }
   },
-  "user_form": {
+  "employee_form": {
     "country": { "select": "Select country", "label": "Country" },
     "name": { "select": "Enter full name", "label": "Full Name" },
     "professions": { "select": "Select profession", "label": "Professions" },
     "status": { "select": "Select status", "label": "Status" }
   },
-  "user_modal": { "add_user": "ADD USER", "add_user_btn": "Add user", "cancel": "Cancel" }
+  "employee_modal": { "add_employee": "ADD EMPLOYEE", "add_employee_btn": "Add employee", "cancel": "Cancel" }
 }

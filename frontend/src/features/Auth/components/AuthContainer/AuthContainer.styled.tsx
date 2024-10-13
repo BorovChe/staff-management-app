@@ -1,31 +1,47 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-const AuthContainerStyled = styled.div`
+import signInBg from 'components/images/authBg/signInBg.png';
+import signUpBg from 'components/images/authBg/signUpBg.png';
+
+import { BgImageProps } from './types';
+
+const AuthContainerStyled = styled.div<BgImageProps>`
+  background-image: url(${({ location }) => (location === '/signIn' ? signInBg : signUpBg)});
   position: relative;
   width: 100%;
   height: 298px;
+
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
-`;
 
-/* background-image: url(${props => (props.locationprop === '/' ? backgroundSpase : backgroundImg)}); */
+  background-color: var(--background-primary-color);
+`;
 
 const AuthBlockStyled = styled.div`
   position: absolute;
   top: 222px;
   left: 50%;
-  background-color: #ffffff;
-  border-radius: 24px;
+  transform: translate(-50%, 0);
+
+  width: 520px;
+
   display: flex;
-  padding: 24px 46px 50px 46px;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  transform: translate(-50%, 0);
-  min-width: 382px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  padding: 24px 46px 50px 46px;
+
+  background-color: var(--color-primary-white);
+
+  border-radius: 5px;
+  box-shadow: 0 6px 4px 0 rgba(222, 219, 219, 0.25);
+`;
+
+const AuthTitleStyled = styled.h1`
+  color: #344767;
 `;
 
 const NavListStyled = styled.ul`
@@ -37,18 +53,24 @@ const NavListStyled = styled.ul`
 
 const LinkStyleStyled = styled(NavLink)`
   color: #808080;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   text-decoration: none;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: #4169e1;
+    color: var(--btn-primary-color);
   }
 
   &.active {
-    color: #000000;
+    color: #000;
   }
 `;
 
-export { AuthContainerStyled, AuthBlockStyled, NavListStyled, LinkStyleStyled };
+const I18nSwitcherWtapper = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 20px;
+`;
+
+export { AuthContainerStyled, AuthBlockStyled, AuthTitleStyled, NavListStyled, LinkStyleStyled, I18nSwitcherWtapper };
