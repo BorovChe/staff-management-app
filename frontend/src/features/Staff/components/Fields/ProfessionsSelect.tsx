@@ -1,26 +1,60 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useState } from 'react';
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
+import { Controller } from 'react-hook-form';
 
 import professions from 'data/professions.json';
 import { ProfessionType } from 'common/types/types';
-import { EmployeeFieldProps } from './types';
+import { EmployeeSelectProps } from './types';
 
-const ProfessionSelect: FC<EmployeeFieldProps> = ({ register }): ReactElement => {
+import {
+  FieldWrapperStyled,
+  LabelStyled,
+  OptionStyled,
+  SelectButtonStyled,
+  SelectOptionsStyled,
+  SelectWrapperStyled,
+} from '../UI/Field.styled';
+
+const ProfessionSelect: FC<EmployeeSelectProps> = ({ visibleLabel, control }): ReactElement => {
   const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
-    <>
-      <label htmlFor="profession">{t('employee_form.professions.label')}</label>
-      <select {...register('profession')}>
-        <option value={t('employee_form.professions.select')}>{t('employee_form.professions.select')}</option>
-        {professions.map(({ title, id }: ProfessionType): ReactElement => {
-          return (
-            <option key={id} value={title}>
-              {title}
-            </option>
-          );
-        })}
-      </select>
-    </>
+    <FieldWrapperStyled>
+      {visibleLabel && <LabelStyled htmlFor="profession">{t('employee_form.professions.label')}</LabelStyled>}
+      <Controller
+        name="profession"
+        control={control}
+        render={({ field }) => (
+          <SelectWrapperStyled>
+            <SelectButtonStyled type="button" onClick={() => setIsOpen(!isOpen)}>
+              {field.value || t('employee_form.professions.select')}
+              <span>{isOpen ? <MdOutlineKeyboardArrowUp size={20} /> : <MdOutlineKeyboardArrowDown size={20} />}</span>
+            </SelectButtonStyled>
+
+            {isOpen && (
+              <SelectOptionsStyled>
+                {professions.map(
+                  ({ title, id }: ProfessionType): ReactElement => (
+                    <OptionStyled
+                      key={id}
+                      isSelected={field.value === title}
+                      onClick={() => {
+                        field.onChange(title);
+                        setIsOpen(false);
+                      }}
+                    >
+                      {title}
+                    </OptionStyled>
+                  )
+                )}
+              </SelectOptionsStyled>
+            )}
+          </SelectWrapperStyled>
+        )}
+      />
+    </FieldWrapperStyled>
   );
 };
 

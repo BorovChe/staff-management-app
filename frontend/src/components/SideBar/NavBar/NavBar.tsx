@@ -11,17 +11,22 @@ const NavBar: FC = (): ReactElement => {
       <NavListStyled>
         <li>
           <NavLinkStyled to="/" className={activeClassName}>
-            {t('header.staff')}
+            {t('nav_bar.staff')}
           </NavLinkStyled>
         </li>
         <li>
           <NavLinkStyled to="edit-employee" className={activeClassName}>
-            {t('header.edit_employee')}
+            {t('nav_bar.edit_employee')}
           </NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled to="country" className={activeClassName}>
-            Country
+          <NavLinkStyled to="statistics" className={activeClassName}>
+            {t('nav_bar.statistics')}
+          </NavLinkStyled>
+        </li>
+        <li>
+          <NavLinkStyled to="staff-countries" className={activeClassName}>
+            {t('nav_bar.staff_countries')}
           </NavLinkStyled>
         </li>
       </NavListStyled>

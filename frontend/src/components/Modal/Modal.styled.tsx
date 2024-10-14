@@ -14,8 +14,7 @@ const BackDropStyled = styled.div`
 `;
 
 const ModalStyled = styled.div`
-  width: 600px;
-  height: 600px;
+  border-radius: 4px;
   background-color: var(--color-primary-white);
 `;
 

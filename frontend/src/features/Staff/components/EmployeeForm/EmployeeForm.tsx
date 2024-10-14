@@ -6,8 +6,11 @@ import { ProfessionSelect, StatusSelect, CountrySelect, NameField } from '../Fie
 import { EmployeeType } from 'common/types/types';
 import { EmployeeFormProps } from './types';
 
-const EmployeeForm: FC<EmployeeFormProps> = ({ initialValues, newEmployee }): ReactElement => {
-  const { register, handleSubmit, reset } = useForm<EmployeeType>({ defaultValues: initialValues });
+import { EditFormStyled } from './EmployeeForm.styled';
+import { FieldWrapperStyled } from '../UI/Field.styled';
+
+const EmployeeForm: FC<EmployeeFormProps> = ({ initialValues, newEmployee, visibleLabel }): ReactElement => {
+  const { register, handleSubmit, control, reset } = useForm<EmployeeType>({ defaultValues: initialValues });
 
   useEffect((): void => {
     reset(initialValues);
@@ -25,12 +28,20 @@ const EmployeeForm: FC<EmployeeFormProps> = ({ initialValues, newEmployee }): Re
   };
 
   return (
-    <form id="employeeForm" onSubmit={handleSubmit(onSubmit)}>
-      <NameField register={register} />
-      <ProfessionSelect register={register} />
-      <CountrySelect register={register} />
-      <StatusSelect register={register} />
-    </form>
+    <EditFormStyled id="employeeForm" onSubmit={handleSubmit(onSubmit)}>
+      <FieldWrapperStyled>
+        <NameField visibleLabel={visibleLabel} register={register} />
+      </FieldWrapperStyled>
+      <FieldWrapperStyled>
+        <ProfessionSelect visibleLabel={visibleLabel} control={control} />
+      </FieldWrapperStyled>
+      <FieldWrapperStyled>
+        <CountrySelect visibleLabel={visibleLabel} control={control} />
+      </FieldWrapperStyled>
+      <FieldWrapperStyled>
+        <StatusSelect visibleLabel={visibleLabel} control={control} />
+      </FieldWrapperStyled>
+    </EditFormStyled>
   );
 };
 

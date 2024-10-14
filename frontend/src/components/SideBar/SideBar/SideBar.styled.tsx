@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const AsideStyled = styled.aside`
   min-width: 250px;
-  width: 250px;
+  flex-basis: 250px;
 
   display: flex;
   flex-direction: column;

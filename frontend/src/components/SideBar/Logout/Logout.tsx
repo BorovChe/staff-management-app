@@ -12,7 +12,7 @@ const Logout: FC = (): ReactElement => {
 
   return (
     <LogoutBtnStyled type="button" onClick={() => dispatch(logOut(false))}>
-      {t('header.log_out')}
+      {t('nav_bar.log_out')}
       <LogoutIconStyled width="30px" height="30px" />
     </LogoutBtnStyled>
   );

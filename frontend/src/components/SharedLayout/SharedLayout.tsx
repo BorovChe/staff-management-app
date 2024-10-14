@@ -2,22 +2,22 @@ import { FC, ReactElement, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import SideBar from 'components/SideBar/SideBar/SideBar';
-import Header from 'components/Header/Header';
+import Header from 'components/Header/Header/Header';
 
-import { BodyWrapperStyled } from './SharedLayout.styled';
+import { BodyWrapperStyled, MainWrapperStyled } from './SharedLayout.styled';
 
 const SharedLayout: FC = (): ReactElement => {
   return (
     <BodyWrapperStyled>
       <SideBar />
-      <div>
+      <MainWrapperStyled>
         <Header />
         <main>
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
         </main>
-      </div>
+      </MainWrapperStyled>
     </BodyWrapperStyled>
   );
 };

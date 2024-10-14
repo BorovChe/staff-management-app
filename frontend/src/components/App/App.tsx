@@ -2,7 +2,7 @@ import { FC, ReactElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { PublicRoutes, PrivateRoutes } from 'common/routes';
-import { EditStaff, Staff } from 'pages';
+import { EditStaff, Staff, StaffCountries, Statistics } from 'pages';
 
 import AuthContainer from 'features/Auth/components/AuthContainer/AuthContainer';
 import { SignUpForm } from 'features/Auth/SignUpForm/SignUpForm';
@@ -26,6 +26,8 @@ const App: FC = (): ReactElement => {
           <Route element={<SharedLayout />}>
             <Route index element={<Staff />} />
             <Route path="edit-employee" element={<EditStaff />} />
+            <Route path="statistics" element={<Statistics />} />
+            <Route path="staff-countries" element={<StaffCountries />} />
           </Route>
         </Route>
       </Routes>

@@ -13,7 +13,7 @@ import { ResetBtnStyled } from './EmployeeFilter.styled';
 const EmployeeFilter: FC = (): ReactElement => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const { register, handleSubmit } = useForm<EmployeeType>();
+  const { handleSubmit, control } = useForm<EmployeeType>();
   const defaultValue = {
     profession: '',
     country: '',
@@ -30,10 +30,10 @@ const EmployeeFilter: FC = (): ReactElement => {
   };
 
   return (
-    <form id="filterForm" onSubmit={handleSubmit(onSubmit)}>
-      <ProfessionSelect register={register} />
-      <CountrySelect register={register} />
-      <StatusSelect register={register} />
+    <form style={{ display: 'flex' }} id="filterForm" onSubmit={handleSubmit(onSubmit)}>
+      <ProfessionSelect visibleLabel={false} control={control} />
+      <CountrySelect visibleLabel={false} control={control} />
+      <StatusSelect visibleLabel={false} control={control} />
       <button type="submit">{t('main.staff.employee_filter.search')}</button>
       <ResetBtnStyled type="reset" onClick={() => dispatch(filterEmployee(defaultValue))}>
         <RiDeleteBin4Line size={20} />

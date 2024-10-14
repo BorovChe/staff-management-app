@@ -1,5 +1,12 @@
 {
-  "header": { "edit_employee": "Edit employee", "staff": "Staff", "log_out": "Logout" },
+  "header": {},
+  "nav_bar": {
+    "edit_employee": "Edit employee",
+    "staff": "Staff",
+    "statistics": "Statistics",
+    "staff_countries": "Staff Countries",
+    "log_out": "Logout"
+  },
   "auth": { "auth_title": "Staff Management", "sign_up": "Sign Up", "sign_in": "Sign In" },
   "auth_form": {
     "name_placeholder": "Name",
@@ -10,7 +17,7 @@
     "staff": {
       "title": "STAFF",
       "search": "Search",
-      "add_employee": "ADD EMPLOYEE",
+      "add_employee": "Add Employee",
       "employee_filter": { "search": "Search" },
       "employee_table": {
         "name": "Full Name",
@@ -26,7 +33,8 @@
       "employee_info": "Employee Information",
       "undo_btn": "Undo",
       "save_btn": "Save"
-    }
+    },
+    "staff_countries": {}
   },
   "employee_form": {
     "country": { "select": "Select country", "label": "Country" },

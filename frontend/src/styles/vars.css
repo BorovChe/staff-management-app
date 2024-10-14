@@ -1,13 +1,15 @@
 :root {
   --color-primary-white: #fff;
-  --color-primary-black: #4a5568;
+  --color-primary-black: #121212;
   --color-primary-accent: #220646;
   --background-primary-color: #f7fafc;
 
   --color-secondary-accent: #15012e;
   --btn-primary-color: #553c9a;
+  --border-primary-color: #e3e8ee;
+  --placeholder-primary-color: #5e626b;
 
-  --warning-color: #f0203b;
+  --warning-color: #e7102c;
 
   --font-family: 'Roboto', sans-serif;
   --second-family: 'Karla', sans-serif;

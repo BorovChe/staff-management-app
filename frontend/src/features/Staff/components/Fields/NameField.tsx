@@ -3,13 +3,15 @@ import { useTranslation } from 'react-i18next';
 
 import { EmployeeFieldProps } from './types';
 
-const NameField: FC<EmployeeFieldProps> = ({ register }): ReactElement => {
+import { FieldWrapperStyled, InputFieldStyled, LabelStyled } from '../UI/Field.styled';
+
+const NameField: FC<EmployeeFieldProps> = ({ register, visibleLabel }): ReactElement => {
   const { t } = useTranslation();
   return (
-    <>
-      <label htmlFor="name">{t('employee_form.name.label')}</label>
-      <input type="text" placeholder={t('employee_form.name.select')} {...register('name')} />
-    </>
+    <FieldWrapperStyled>
+      {visibleLabel && <LabelStyled htmlFor="name">{t('employee_form.name.label')}</LabelStyled>}
+      <InputFieldStyled type="text" placeholder={t('employee_form.name.select')} {...register('name')} />
+    </FieldWrapperStyled>
   );
 };
 

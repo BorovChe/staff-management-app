@@ -41,7 +41,7 @@ const AuthBlockStyled = styled.div`
 `;
 
 const AuthTitleStyled = styled.h1`
-  color: #344767;
+  color: var(--color-primary-black);
 `;
 
 const NavListStyled = styled.ul`

@@ -5,10 +5,13 @@ import { useTranslation } from 'react-i18next';
 import Modal from 'components/Modal/Modal';
 import EmployeeForm from 'features/Staff/components/EmployeeForm/EmployeeForm';
 import { addEmployee } from '../redux/employeeSlice';
+import { selectStaff } from '../redux/selectors';
 import { initialDefaultValue } from 'helpers/defaultValue/initialDefaultValue';
 import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
-import { selectStaff } from '../redux/selectors';
+
 import { EmployeeType } from 'common/types/types';
+
+import { AddEmployeeWrapperStyled, OpenModalBtnStyled, AddEmployeeTitleStyled } from './AddEmployee.styled';
 
 const AddEmployee: FC = (): ReactElement => {
   const { t } = useTranslation();
@@ -41,19 +44,21 @@ const AddEmployee: FC = (): ReactElement => {
 
   return (
     <>
-      <button onClick={() => toggleModal()} type="button">
+      <OpenModalBtnStyled onClick={() => toggleModal()} type="button">
         {t('main.staff.add_employee')}
-      </button>
+      </OpenModalBtnStyled>
       {showModal && (
         <Modal onClose={toggleModal}>
-          <strong>{t('employee_modal.add_employee')}</strong>
-          <EmployeeForm initialValues={initialDefaultValue} newEmployee={onAddEmployee} />
-          <button onClick={(): void => toggleModal()} type="button">
-            {t('employee_modal.cancel')}
-          </button>
-          <button form="employeeForm" type="submit">
-            {t('employee_modal.add_employee_btn')}
-          </button>
+          <AddEmployeeWrapperStyled>
+            <AddEmployeeTitleStyled>{t('employee_modal.add_employee')}</AddEmployeeTitleStyled>
+            <EmployeeForm initialValues={initialDefaultValue} newEmployee={onAddEmployee} visibleLabel={true} />
+            <button onClick={(): void => toggleModal()} type="button">
+              {t('employee_modal.cancel')}
+            </button>
+            <button form="employeeForm" type="submit">
+              {t('employee_modal.add_employee_btn')}
+            </button>
+          </AddEmployeeWrapperStyled>
         </Modal>
       )}
     </>

@@ -1,4 +1,4 @@
-import { ReactElement, ChangeEvent, FC, useState } from 'react';
+import { ReactElement, FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EmployeeForm from '../components/EmployeeForm/EmployeeForm';
@@ -9,19 +9,25 @@ import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
 import { selectStaff } from '../redux/selectors';
 import { EmployeeType } from 'common/types/types';
 
+import {
+  CurrentUserWrapperStyled,
+  CurrentUserSelectStyled,
+  InformationTitleStyled,
+  ButtonWrapperStyled,
+  SaveBtnStyled,
+  UndoBtnStyled,
+} from './EditEmployeeForm.styled';
+import CurrentUserSelect from '../components/Fields/CurrentUserSelect';
+
 const EditEmployeeForm: FC = (): ReactElement => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const staff: EmployeeType[] = useAppSelector(selectStaff);
   const [currentEmployee, setCurrentEmployee] = useState<EmployeeType>(() => staff[0] || initialDefaultValue);
 
-  const selectCurrentEmployee = (e: ChangeEvent<HTMLSelectElement>): void => {
-    const input: HTMLSelectElement = e.target;
-    const value: string = input.value;
-
+  const selectCurrentEmployee = (value: string): void => {
     const searchCurrentEmployee: EmployeeType =
       staff && staff.length ? staff.find(({ name }: EmployeeType): boolean => name === value)! : initialDefaultValue;
-
     setCurrentEmployee(searchCurrentEmployee);
   };
 
@@ -35,31 +41,22 @@ const EditEmployeeForm: FC = (): ReactElement => {
   };
 
   return (
-    <>
-      <label htmlFor="editEmployee">{t('main.edit.current_employee')}</label>
-      <select
-        required
-        name="editEmployee"
-        onChange={selectCurrentEmployee}
-        value={currentEmployee.name || 'Add Employee'}
-      >
-        {staff.map(({ name, id }: EmployeeType): ReactElement => {
-          return (
-            <option key={id} value={name}>
-              {name}
-            </option>
-          );
-        })}
-      </select>
-      <h3>{t('main.edit.employee_info')}</h3>
-      <EmployeeForm initialValues={currentEmployee} newEmployee={onUpdateEmployee} />
-      <button form="employeeForm" type="reset">
-        {t('main.edit.undo_btn')}
-      </button>
-      <button form="employeeForm" type="submit">
-        {t('main.edit.save_btn')}
-      </button>
-    </>
+    <CurrentUserWrapperStyled>
+      <CurrentUserSelectStyled>
+        <label htmlFor="editEmployee">{t('main.edit.current_employee')}</label>
+        <CurrentUserSelect staff={staff} currentUserName={currentEmployee.name} onChange={selectCurrentEmployee} />
+      </CurrentUserSelectStyled>
+      <InformationTitleStyled>{t('main.edit.employee_info')}</InformationTitleStyled>
+      <EmployeeForm initialValues={currentEmployee} newEmployee={onUpdateEmployee} visibleLabel={true} />
+      <ButtonWrapperStyled>
+        <UndoBtnStyled form="employeeForm" type="reset">
+          {t('main.edit.undo_btn')}
+        </UndoBtnStyled>
+        <SaveBtnStyled form="employeeForm" type="submit">
+          {t('main.edit.save_btn')}
+        </SaveBtnStyled>
+      </ButtonWrapperStyled>
+    </CurrentUserWrapperStyled>
   );
 };
 

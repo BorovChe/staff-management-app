@@ -1,5 +1,12 @@
 {
-  "header": { "edit_employee": "Редагувати працівника", "staff": "Персонал", "log_out": "Вийти" },
+  "header": {},
+  "nav_bar": {
+    "edit_employee": "Редагувати працівника",
+    "staff": "Персонал",
+    "statistics": "Статистика",
+    "staff_countries": "Країни Персоналу",
+    "log_out": "Вийти"
+  },
   "auth": { "auth_title": "Менеджер Персоналу", "sign_up": "Зареєструватися", "sign_in": "Увійти" },
   "auth_form": {
     "name_placeholder": "Ім'я",

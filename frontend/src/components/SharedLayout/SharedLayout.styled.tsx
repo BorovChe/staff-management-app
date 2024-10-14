@@ -6,4 +6,8 @@ const BodyWrapperStyled = styled.div`
   height: 100%;
 `;
 
-export { BodyWrapperStyled };
+const MainWrapperStyled = styled.div`
+  flex-grow: 1;
+`;
+
+export { BodyWrapperStyled, MainWrapperStyled };
