@@ -34,7 +34,7 @@
       "undo_btn": "Undo",
       "save_btn": "Save"
     },
-    "staff_countries": {}
+    "staff_countries": { "title": "Countries in which the staff are located" }
   },
   "employee_form": {
     "country": { "select": "Select country", "label": "Country" },

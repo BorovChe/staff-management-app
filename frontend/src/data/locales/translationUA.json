@@ -32,7 +32,8 @@
       "employee_info": "Інформація про Працівника",
       "undo_btn": "Скасувати",
       "save_btn": "Зберегти"
-    }
+    },
+    "staff_countries": { "title": "Країни в яких знаходиться персонал" }
   },
   "employee_form": {
     "country": { "select": "Виберіть країну", "label": "Країна" },

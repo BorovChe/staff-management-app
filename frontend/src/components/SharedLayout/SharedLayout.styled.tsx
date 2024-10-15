@@ -10,4 +10,8 @@ const MainWrapperStyled = styled.div`
   flex-grow: 1;
 `;
 
-export { BodyWrapperStyled, MainWrapperStyled };
+const MainStyled = styled.main`
+  height: calc(100% - 120px);
+`;
+
+export { BodyWrapperStyled, MainWrapperStyled, MainStyled };

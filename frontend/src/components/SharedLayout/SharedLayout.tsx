@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import SideBar from 'components/SideBar/SideBar/SideBar';
 import Header from 'components/Header/Header/Header';
 
-import { BodyWrapperStyled, MainWrapperStyled } from './SharedLayout.styled';
+import { BodyWrapperStyled, MainWrapperStyled, MainStyled } from './SharedLayout.styled';
 
 const SharedLayout: FC = (): ReactElement => {
   return (
@@ -12,11 +12,11 @@ const SharedLayout: FC = (): ReactElement => {
       <SideBar />
       <MainWrapperStyled>
         <Header />
-        <main>
+        <MainStyled>
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
-        </main>
+        </MainStyled>
       </MainWrapperStyled>
     </BodyWrapperStyled>
   );

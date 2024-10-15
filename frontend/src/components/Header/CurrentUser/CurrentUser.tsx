@@ -1,9 +1,13 @@
-const CurrentUser = () => {
+import { FC, ReactElement } from 'react';
+
+import { CurrentUserWrapperStyled, UserAvatar } from './CurrentUser.styled';
+
+const CurrentUser: FC = (): ReactElement => {
   return (
-    <div>
+    <CurrentUserWrapperStyled>
       <p>No name</p>
-      <div></div>
-    </div>
+      <UserAvatar></UserAvatar>
+    </CurrentUserWrapperStyled>
   );
 };
 

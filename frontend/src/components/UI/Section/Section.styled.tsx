@@ -5,7 +5,8 @@ const SectionStyled = styled.section`
   flex-direction: column;
   align-items: center;
 
-  padding: 60px 18px 18px 18px;
+  height: 100%;
+  padding: 40px 18px 18px 18px;
 
   background: #f7fafc;
 `;
