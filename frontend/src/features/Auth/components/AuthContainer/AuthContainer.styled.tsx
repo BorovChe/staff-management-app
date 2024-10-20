@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { NavLink } from 'react-router-dom';
 
 import signInBg from 'components/images/authBg/signInBg.png';
 import signUpBg from 'components/images/authBg/signUpBg.png';
@@ -7,7 +6,7 @@ import signUpBg from 'components/images/authBg/signUpBg.png';
 import { BgImageProps } from './types';
 
 const AuthContainerStyled = styled.div<BgImageProps>`
-  background-image: url(${({ location }) => (location === '/signIn' ? signInBg : signUpBg)});
+  background-image: url(${({ location }) => (location === '/signin' ? signInBg : signUpBg)});
   position: relative;
   width: 100%;
   height: 298px;
@@ -51,26 +50,10 @@ const NavListStyled = styled.ul`
   list-style: none;
 `;
 
-const LinkStyleStyled = styled(NavLink)`
-  color: #808080;
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    color: var(--btn-primary-color);
-  }
-
-  &.active {
-    color: #000;
-  }
-`;
-
 const I18nSwitcherWtapper = styled.div`
   position: absolute;
   top: 10px;
   right: 20px;
 `;
 
-export { AuthContainerStyled, AuthBlockStyled, AuthTitleStyled, NavListStyled, LinkStyleStyled, I18nSwitcherWtapper };
+export { AuthContainerStyled, AuthBlockStyled, AuthTitleStyled, NavListStyled, I18nSwitcherWtapper };

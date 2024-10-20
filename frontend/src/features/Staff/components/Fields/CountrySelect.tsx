@@ -1,10 +1,10 @@
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
-import { Controller } from 'react-hook-form';
+import { Controller, ControllerRenderProps } from 'react-hook-form';
 
-import { getEuropeanCountries } from 'API/countryApi';
-import { CountriesType } from 'common/types/types';
+import getEuropeanCountries from 'API/countryApi';
+import { CountriesType, EmployeeType } from 'common/types/types';
 import { EmployeeSelectProps } from './types';
 
 import {
@@ -21,10 +21,17 @@ const CountrySelect: FC<EmployeeSelectProps> = ({ visibleLabel, control }): Reac
   const [countries, setCountries] = useState<CountriesType[]>([]);
 
   useEffect(() => {
-    getEuropeanCountries().then(data => {
-      setCountries(data);
-    });
+    const fetchCountries = async (): Promise<void> => {
+      setCountries(await getEuropeanCountries());
+    };
+
+    fetchCountries();
   }, []);
+
+  const onChangeSelect = (field: ControllerRenderProps<EmployeeType, 'country'>, value: string): void => {
+    field.onChange(value);
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -42,16 +49,13 @@ const CountrySelect: FC<EmployeeSelectProps> = ({ visibleLabel, control }): Reac
             {isOpen && (
               <SelectOptionsStyled>
                 {countries.map(
-                  ({ name }: CountriesType): ReactElement => (
+                  ({ name: { common } }: CountriesType): ReactElement => (
                     <OptionStyled
-                      key={name.common}
-                      isSelected={field.value === name.common}
-                      onClick={() => {
-                        field.onChange(name.common);
-                        setIsOpen(false);
-                      }}
+                      key={common}
+                      isSelected={field.value === common}
+                      onClick={(): void => onChangeSelect(field, common)}
                     >
-                      {name.common}
+                      {common}
                     </OptionStyled>
                   )
                 )}

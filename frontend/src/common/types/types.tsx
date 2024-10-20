@@ -23,4 +23,9 @@ type ProfessionType = {
   title: string;
 };
 
-export type { EmployeeType, CountriesType, ProfessionType, FilterValue };
+type NavLinkType = {
+  path: string;
+  title: string;
+};
+
+export type { EmployeeType, CountriesType, ProfessionType, FilterValue, NavLinkType };

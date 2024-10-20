@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-import { useAppSelector } from 'common/hooks/reduxHooks';
+import { useAppSelector } from 'common/tools/reduxTools';
 import { selectAuth } from 'features/Auth/redux/selectors';
 
 const PublicRoutes: FC = (): JSX.Element => {

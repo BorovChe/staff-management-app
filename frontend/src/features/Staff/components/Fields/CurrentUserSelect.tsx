@@ -9,6 +9,11 @@ import { OptionStyled, SelectButtonStyled, SelectOptionsStyled, SelectWrapperSty
 const CurrentUserSelect: FC<CurrentUserSelectProps> = ({ currentUserName, staff, onChange }): ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  const onChangeSelect = (value: string): void => {
+    onChange(value);
+    setIsOpen(false);
+  };
+
   return (
     <SelectWrapperStyled>
       <SelectButtonStyled onClick={() => setIsOpen(!isOpen)}>
@@ -20,14 +25,7 @@ const CurrentUserSelect: FC<CurrentUserSelectProps> = ({ currentUserName, staff,
         <SelectOptionsStyled>
           {staff.map(
             ({ name, id }: EmployeeType): ReactElement => (
-              <OptionStyled
-                key={id}
-                isSelected={currentUserName === name}
-                onClick={() => {
-                  onChange(name);
-                  setIsOpen(false);
-                }}
-              >
+              <OptionStyled key={id} isSelected={currentUserName === name} onClick={(): void => onChangeSelect(name)}>
                 {name}
               </OptionStyled>
             )

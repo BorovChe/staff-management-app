@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import EmployeeForm from '../components/EmployeeForm/EmployeeForm';
 
-import { initialDefaultValue } from 'helpers/defaultValue/initialDefaultValue';
+import initialDefaultValue from 'helpers/defaultValue/initialDefaultValue';
 import { updateEmployee } from '../redux/employeeSlice';
-import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from 'common/tools/reduxTools';
 import { selectStaff } from '../redux/selectors';
 import { EmployeeType } from 'common/types/types';
 
@@ -26,9 +26,11 @@ const EditEmployeeForm: FC = (): ReactElement => {
   const [currentEmployee, setCurrentEmployee] = useState<EmployeeType>(() => staff[0] || initialDefaultValue);
 
   const selectCurrentEmployee = (value: string): void => {
-    const searchCurrentEmployee: EmployeeType =
-      staff && staff.length ? staff.find(({ name }: EmployeeType): boolean => name === value)! : initialDefaultValue;
-    setCurrentEmployee(searchCurrentEmployee);
+    if (!staff || staff.length === 0) return;
+    const currentEmployee: EmployeeType = staff.find(({ name }: EmployeeType): boolean => name === value)!;
+
+    if (!currentEmployee) setCurrentEmployee(initialDefaultValue);
+    else setCurrentEmployee(currentEmployee);
   };
 
   const onUpdateEmployee = (employee: EmployeeType): void => {

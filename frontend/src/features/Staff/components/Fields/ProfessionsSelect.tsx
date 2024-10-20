@@ -1,10 +1,10 @@
 import { FC, ReactElement, useState } from 'react';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
-import { Controller } from 'react-hook-form';
+import { Controller, ControllerRenderProps } from 'react-hook-form';
 
 import professions from 'data/professions.json';
-import { ProfessionType } from 'common/types/types';
+import { EmployeeType, ProfessionType } from 'common/types/types';
 import { EmployeeSelectProps } from './types';
 
 import {
@@ -19,6 +19,11 @@ import {
 const ProfessionSelect: FC<EmployeeSelectProps> = ({ visibleLabel, control }): ReactElement => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const onChangeSelect = (field: ControllerRenderProps<EmployeeType, 'profession'>, value: string): void => {
+    field.onChange(value);
+    setIsOpen(false);
+  };
 
   return (
     <FieldWrapperStyled>
@@ -40,10 +45,7 @@ const ProfessionSelect: FC<EmployeeSelectProps> = ({ visibleLabel, control }): R
                     <OptionStyled
                       key={id}
                       isSelected={field.value === title}
-                      onClick={() => {
-                        field.onChange(title);
-                        setIsOpen(false);
-                      }}
+                      onClick={(): void => onChangeSelect(field, title)}
                     >
                       {title}
                     </OptionStyled>

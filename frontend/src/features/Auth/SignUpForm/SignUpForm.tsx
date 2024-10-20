@@ -4,11 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import AuthField from '../components/AuthField/AuthField';
-import { useAppDispatch } from 'common/hooks/reduxHooks';
+import { useAppDispatch } from 'common/tools/reduxTools';
 import { signUp } from 'features/Auth/redux/authSlice';
-import { AuthType } from '../types/types';
+import { AuthFieldType, AuthType } from '../types/types';
 
 import { AuthFormStyled, SubmitBtnStyled, SubmitWrapperStyled } from '../components/UI/AuthForm.styled';
+import { authSignUpFields } from '../data/data';
 
 const SignUpForm: FC = (): ReactElement => {
   const dispatch = useAppDispatch();
@@ -22,9 +23,11 @@ const SignUpForm: FC = (): ReactElement => {
 
   return (
     <AuthFormStyled id="userForm" onSubmit={handleSubmit(onSubmit)}>
-      <AuthField register={register} type="name" placeholder={t('auth_form.name_placeholder')} />
-      <AuthField register={register} type="email" placeholder={t('auth_form.email_placeholder')} />
-      <AuthField register={register} type="password" placeholder={t('auth_form.password_placeholder')} />
+      {authSignUpFields.map(
+        ({ type, placeholder }: AuthFieldType): ReactElement => (
+          <AuthField key={type} register={register} type={type} placeholder={t(placeholder)} />
+        )
+      )}
       <SubmitWrapperStyled>
         <CustomIcon width="42px" height="42px" id="google" />
         <SubmitBtnStyled type="submit">{t('auth.sign_up')}</SubmitBtnStyled>
@@ -33,4 +36,4 @@ const SignUpForm: FC = (): ReactElement => {
   );
 };
 
-export { SignUpForm };
+export default SignUpForm;

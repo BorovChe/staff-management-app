@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import EmployeeItem from '../components/EmployeeItem/EmployeeItem';
 
-import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
-import { employeeFilter } from '../EmployeeFilter/employeeFilterFunc';
+import employeeFilter from '../EmployeeFilter/employeeFilterFunc';
+import { useAppDispatch, useAppSelector } from 'common/tools/reduxTools';
 import { deleteEmployee } from '../redux/employeeSlice';
 import { selectFilterStaff, selectStaff } from '../redux/selectors';
 import { EmployeeType } from 'common/types/types';

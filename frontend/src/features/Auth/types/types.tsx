@@ -4,4 +4,9 @@ type AuthType = {
   password: string;
 };
 
-export type { AuthType };
+type AuthFieldType = {
+  type: keyof AuthType;
+  placeholder: string;
+};
+
+export type { AuthType, AuthFieldType };

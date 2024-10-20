@@ -1,10 +1,14 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-axios.defaults.baseURL = 'https://restcountries.com/v3.1';
+import getData from './requestMiddleware';
 
-const getEuropeanCountries = async () => {
-  const { data } = await axios.get('/region/europe');
-  return data;
-};
+import { CountriesType } from 'common/types/types';
 
-export { getEuropeanCountries };
+const europeanCountriesApi: AxiosInstance = axios.create({
+  baseURL: 'https://restcountries.com/v3.1',
+});
+
+const getEuropeanCountries = async (): Promise<CountriesType[]> =>
+  getData<CountriesType[], []>(europeanCountriesApi, '/region/europe', []);
+
+export default getEuropeanCountries;

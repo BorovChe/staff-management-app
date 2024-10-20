@@ -6,8 +6,8 @@ import Modal from 'components/Modal/Modal';
 import EmployeeForm from 'features/Staff/components/EmployeeForm/EmployeeForm';
 import { addEmployee } from '../redux/employeeSlice';
 import { selectStaff } from '../redux/selectors';
-import { initialDefaultValue } from 'helpers/defaultValue/initialDefaultValue';
-import { useAppDispatch, useAppSelector } from 'common/hooks/reduxHooks';
+import initialDefaultValue from 'helpers/defaultValue/initialDefaultValue';
+import { useAppDispatch, useAppSelector } from 'common/tools/reduxTools';
 
 import { EmployeeType } from 'common/types/types';
 

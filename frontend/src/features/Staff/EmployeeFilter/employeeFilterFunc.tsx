@@ -13,4 +13,4 @@ const employeeFilter = (staff: EmployeeType[], filter: FilterValue): EmployeeTyp
   return filterByStatus;
 };
 
-export { employeeFilter };
+export default employeeFilter;

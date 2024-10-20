@@ -1,3 +1,3 @@
-const googleApi: string = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
+const googleApi = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
 
-export { googleApi };
+export default googleApi;

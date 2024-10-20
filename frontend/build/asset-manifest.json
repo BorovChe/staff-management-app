@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/staff-management-app/static/css/main.ccf46f9a.css",
-    "main.js": "/staff-management-app/static/js/main.3bd3d87f.js",
+    "main.css": "/staff-management-app/static/css/main.5e6ff475.css",
+    "main.js": "/staff-management-app/static/js/main.fc84dcac.js",
     "static/media/signUpBg.png": "/staff-management-app/static/media/signUpBg.11f297383ad0d64a1127.png",
     "static/media/phoenix-logo.png": "/staff-management-app/static/media/phoenix-logo.ee6ba590dfd9bf781720.png",
     "static/media/signInBg.png": "/staff-management-app/static/media/signInBg.65464d61b561ad6e3973.png",
     "static/media/sprite.svg": "/staff-management-app/static/media/sprite.18cb53e33832fdb49a150cb0d6e3e247.svg",
     "index.html": "/staff-management-app/index.html",
     "static/media/getFetch.cjs": "/staff-management-app/static/media/getFetch.c4cca45e22bc1b2c7d0d.cjs",
-    "main.ccf46f9a.css.map": "/staff-management-app/static/css/main.ccf46f9a.css.map",
-    "main.3bd3d87f.js.map": "/staff-management-app/static/js/main.3bd3d87f.js.map"
+    "main.5e6ff475.css.map": "/staff-management-app/static/css/main.5e6ff475.css.map",
+    "main.fc84dcac.js.map": "/staff-management-app/static/js/main.fc84dcac.js.map"
   },
   "entrypoints": [
-    "static/css/main.ccf46f9a.css",
-    "static/js/main.3bd3d87f.js"
+    "static/css/main.5e6ff475.css",
+    "static/js/main.fc84dcac.js"
   ]
 }

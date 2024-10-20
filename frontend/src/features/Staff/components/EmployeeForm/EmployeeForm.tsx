@@ -1,9 +1,10 @@
 import { FC, ReactElement, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { ProfessionSelect, StatusSelect, CountrySelect, NameField } from '../Fields';
-
+import { NameField } from '../Fields';
+import formSelects from 'features/Staff/data/data';
 import { EmployeeType } from 'common/types/types';
+import { FormSelectType } from 'features/Staff/types/types';
 import { EmployeeFormProps } from './types';
 
 import { EditFormStyled } from './EmployeeForm.styled';
@@ -32,15 +33,13 @@ const EmployeeForm: FC<EmployeeFormProps> = ({ initialValues, newEmployee, visib
       <FieldWrapperStyled>
         <NameField visibleLabel={visibleLabel} register={register} />
       </FieldWrapperStyled>
-      <FieldWrapperStyled>
-        <ProfessionSelect visibleLabel={visibleLabel} control={control} />
-      </FieldWrapperStyled>
-      <FieldWrapperStyled>
-        <CountrySelect visibleLabel={visibleLabel} control={control} />
-      </FieldWrapperStyled>
-      <FieldWrapperStyled>
-        <StatusSelect visibleLabel={visibleLabel} control={control} />
-      </FieldWrapperStyled>
+      {formSelects.map(
+        ({ component: Component }: FormSelectType, i: number): ReactElement => (
+          <FieldWrapperStyled key={i}>
+            <Component visibleLabel={visibleLabel} control={control} />
+          </FieldWrapperStyled>
+        )
+      )}
     </EditFormStyled>
   );
 };

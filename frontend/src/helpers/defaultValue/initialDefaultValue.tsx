@@ -8,4 +8,4 @@ const initialDefaultValue: EmployeeType = {
   status: 'Select status',
 };
 
-export { initialDefaultValue };
+export default initialDefaultValue;

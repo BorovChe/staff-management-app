@@ -11,12 +11,18 @@ import {
   SelectOptionsStyled,
   SelectWrapperStyled,
 } from '../UI/Field.styled';
-import { Controller } from 'react-hook-form';
+import { Controller, ControllerRenderProps } from 'react-hook-form';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
+import { EmployeeType } from 'common/types/types';
 
 const StatusSelect: FC<EmployeeSelectProps> = ({ visibleLabel, control }): ReactElement => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const onChangeSelect = (field: ControllerRenderProps<EmployeeType, 'status'>, value: string): void => {
+    field.onChange(value);
+    setIsOpen(false);
+  };
 
   return (
     <FieldWrapperStyled>
@@ -38,10 +44,7 @@ const StatusSelect: FC<EmployeeSelectProps> = ({ visibleLabel, control }): React
                     <OptionStyled
                       key={status}
                       isSelected={field.value === status}
-                      onClick={() => {
-                        field.onChange(status);
-                        setIsOpen(false);
-                      }}
+                      onClick={(): void => onChangeSelect(field, status)}
                     >
                       {status}
                     </OptionStyled>

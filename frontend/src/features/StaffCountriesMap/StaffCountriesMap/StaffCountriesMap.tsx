@@ -4,8 +4,8 @@ import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import { selectStaff } from 'features/Staff/redux/selectors';
 import Markers from '../components/Markers/Markers';
 
-import { useAppSelector } from 'common/hooks/reduxHooks';
-import { googleApi } from 'helpers/API_KEYS/GoogleKeys';
+import { useAppSelector } from 'common/tools/reduxTools';
+import googleApi from 'helpers/API_KEYS/GoogleKeys';
 import { getCoordinates } from 'API/geocodeApi';
 import { EmployeeType } from 'common/types/types';
 import { MarkerType } from '../components/types';
@@ -23,18 +23,17 @@ const StaffCountriesMap = () => {
 
   useEffect(() => {
     const fetchMarkers = async (): Promise<void> => {
-      const newMarkers: MarkerType[] = [];
-      for (const employee of staff) {
-        const { name, country, id }: EmployeeType = employee;
-        const coordinates: google.maps.LatLngLiteral = await getCoordinates(country);
-        if (coordinates) {
-          newMarkers.push({
+      const newMarkers: MarkerType[] = await Promise.all(
+        staff.map(async ({ name, country, id }: EmployeeType) => {
+          const coordinates: google.maps.LatLngLiteral | null = await getCoordinates(country);
+          return {
             name,
             position: coordinates,
             id: id!,
-          });
-        }
-      }
+          } as MarkerType;
+        })
+      );
+
       setMarkers(newMarkers);
     };
 
@@ -43,6 +42,7 @@ const StaffCountriesMap = () => {
 
   return (
     <div style={mapStyles}>
+      {!staff.length && <p>please add employee</p>}
       <APIProvider apiKey={googleApi} onLoad={() => console.log('Maps API has loaded.')}>
         <Map mapId="STAFF_MAP" defaultZoom={3} defaultCenter={defaultCenter}>
           <Markers markers={markers} />

@@ -1,12 +1,23 @@
-import { googleApi } from 'helpers/API_KEYS/GoogleKeys';
+import axios, { AxiosInstance } from 'axios';
 
-const getCoordinates = async (country: string) => {
-  const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${country}&key=${googleApi}`);
-  const data = await response.json();
-  if (data.results.length > 0) {
-    return data.results[0].geometry.location;
-  }
-  return null;
+import googleApi from 'helpers/API_KEYS/GoogleKeys';
+import getData from './requestMiddleware';
+
+import { CoordinatesResponseType } from './types';
+
+const countriesCoordinatesApi: AxiosInstance = axios.create({
+  baseURL: 'https://maps.googleapis.com/maps/api/geocode',
+});
+
+const getCoordinates = async (country: string): Promise<google.maps.LatLngLiteral | null> => {
+  const results = await getData<CoordinatesResponseType, null>(
+    countriesCoordinatesApi,
+    `/json?address=${country}&key=${googleApi}`,
+    null
+  );
+
+  if (results) return results.results[0].geometry.location;
+  else return null;
 };
 
 export { getCoordinates };

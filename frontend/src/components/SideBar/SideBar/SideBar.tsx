@@ -1,7 +1,7 @@
 import { FC, ReactElement } from 'react';
 import logo from '../../images/logo/phoenix-logo.png';
 
-import NavBar from '../NavBar/NavBar';
+import NavBar from '../NavBar/NavBar/NavBar';
 import Logout from '../Logout/Logout';
 
 import { AsideStyled, LogoWrapperStyled, LogoTitleStyled, LogoSubTitleStyled } from './SideBar.styled';

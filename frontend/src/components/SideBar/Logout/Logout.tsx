@@ -2,7 +2,7 @@ import { FC, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { logOut } from 'features/Auth/redux/authSlice';
-import { useAppDispatch } from 'common/hooks/reduxHooks';
+import { useAppDispatch } from 'common/tools/reduxTools';
 
 import { LogoutBtnStyled, LogoutIconStyled } from './Logout.styled';
 
